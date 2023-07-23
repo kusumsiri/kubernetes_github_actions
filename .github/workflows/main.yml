@@ -10,27 +10,10 @@ jobs:
       
     steps:
     
-    - name: Install Terraform  
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: 1.1.7
-
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Terraform init
-      uses: ./.github/actions/exec-terraform
-      with:
-        terraform-cmd: 'init'
-        terraform-args: ''
-        terraform-init-args: ''
+    - name: Terraform Init
+      uses: hashicorp/terraform-github-actions/init@v0.4.0
 
-    # - run: terraform init
 
-    # - id: plan
-    #   run: terraform plan -no-color
-
-    # - run: echo ${{ steps.plan.outputs.stdout }}
-    # - run: echo ${{ steps.plan.outputs.stderr }}
-    # - run: echo ${{ steps.plan.outputs.exitcode }}
-        
