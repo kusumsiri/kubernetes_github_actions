@@ -3,8 +3,3 @@ resource "kubernetes_namespace" "namespace" {
     name = var.k8_namespace
   }
 }
-
-module "kube" {
-  source = "./modules/prometheus"
-  
-}
