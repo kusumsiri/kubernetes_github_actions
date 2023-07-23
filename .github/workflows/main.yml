@@ -13,7 +13,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Terraform Init
-      uses: hashicorp/terraform-github-actions/init@v0.4.0
+    - uses: hashicorp/setup-terraform@v2
 
 
