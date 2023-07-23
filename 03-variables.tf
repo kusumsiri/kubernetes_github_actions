@@ -3,3 +3,7 @@ variable "k8_namespace" {
   default = "dev"
 }
 
+variable "kube_config" {
+  type    = string
+  default = "~/.kube/config"
+}
