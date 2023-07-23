@@ -4,11 +4,17 @@ jobs:
   deploy:
     name: deploy to cluster
     runs-on: ubuntu-latest
+    
+    permissions:
+      pull-requests: write
+      
     steps:
     - name: Checkout
       uses: actions/checkout@v2
       
     - uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.1.7
 
     - run: terraform init
 
