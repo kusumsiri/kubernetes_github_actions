@@ -15,7 +15,7 @@ jobs:
     - name: pull kubeconfig
       run: |
         mkdir kubeconf
-        echo "$DEV_CLUSTER_KUBECONF" 
+        echo "$DEV_CLUSTER_KUBECONF" > kubeconf/kubeconf.conf
 
     - name: envsub kube.conf
       run: |
@@ -23,7 +23,7 @@ jobs:
     
     - uses: actions-hub/kubectl@master
       env:
-        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
+        KUBE_CONFIG: ${{ secrets.DEV_CLUSTER_KUBECONF }}
       with:
         args: get pods
     
