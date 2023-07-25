@@ -1,5 +1,8 @@
 on: push
 name: deploy
+env:
+  DEV_CLUSTER_KUBECONF: ${{ secrets.KUBE_CONFIG_DATA }}
+  
 jobs:
   deploy:
     name: deploy to cluster
@@ -9,7 +12,11 @@ jobs:
       pull-requests: write
       
     steps:
-
+    - name: pull kubeconfig
+      run: |
+        mkdir kubeconf
+        echo "$DEV_CLUSTER_KUBECONF" > kubeconf/kubeconf.conf
+    
     - uses: actions-hub/kubectl@master
       env:
         KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
