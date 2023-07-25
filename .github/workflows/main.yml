@@ -1,7 +1,7 @@
 on: push
 name: deploy
 env:
-  DEV_CLUSTER_KUBECONF: ${{ secrets.KUBE_CONFIG_DATA }}
+  DEV_CLUSTER_KUBECONF: ${{ secrets.DEV_CLUSTER_KUBECONF }}
 
 jobs:
   deploy:
