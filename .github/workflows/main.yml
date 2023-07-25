@@ -15,7 +15,7 @@ jobs:
     - name: pull kubeconfig
       run: |
         mkdir kubeconf
-        echo "$DEV_CLUSTER_KUBECONF" > kubeconf/kubeconf.conf
+        echo "$DEV_CLUSTER_KUBECONF" 
 
     - name: envsub kube.conf
       run: |
