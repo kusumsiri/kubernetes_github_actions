@@ -14,12 +14,12 @@ jobs:
     steps:
     - name: pull kubeconfig
       run: |
-        mkdir kubeconf
-        echo "$DEV_CLUSTER_KUBECONF" > kubeconf/kubeconf.conf
+        mkdir .kube
+        echo "$DEV_CLUSTER_KUBECONF" > .kube/config
 
     - name: envsub kube.conf
       run: |
-        cat kubeconf/kubeconf.conf
+        cat .kube/config
     
     - uses: actions-hub/kubectl@master
       env:
