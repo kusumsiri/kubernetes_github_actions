@@ -20,7 +20,7 @@ jobs:
 
     - name: envsub kube.conf
       run: |
-        cat .kube/config
+        cat /home/runner/.kube/config
     
     - uses: actions-hub/kubectl@master
       env:
