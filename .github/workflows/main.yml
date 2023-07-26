@@ -22,7 +22,7 @@ jobs:
     - uses: tale/kubectl-action@v1
       with:
         base64-kube-config: ${{ secrets.KUBE_CONFIG_DATA }}
-
+    - run: kubectl get ns
     # - name: envsub kube.conf
     #   run: |
     #     cat /home/runner/.kube/config
