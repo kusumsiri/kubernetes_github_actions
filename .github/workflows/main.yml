@@ -14,19 +14,19 @@ jobs:
     steps:
     - name: pull kubeconfig
       run: |
-        cd /home/runner
-        mkdir .kube
+        # cd /home/runner
+        mkdir /home/runner/.kube
         echo "$DEV_CLUSTER_KUBECONF" > .kube/config
 
-    - name: envsub kube.conf
-      run: |
-        cat /home/runner/.kube/config
+    # - name: envsub kube.conf
+    #   run: |
+    #     cat /home/runner/.kube/config
     
-    - uses: actions-hub/kubectl@master
-      env:
-        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
-      with:
-        args: get ns
+    # - uses: actions-hub/kubectl@master
+    #   env:
+    #     KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
+    #   with:
+    #     args: get ns
     
     - name: Checkout
       uses: actions/checkout@v2
