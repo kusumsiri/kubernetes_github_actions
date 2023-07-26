@@ -20,10 +20,10 @@ jobs:
     #     echo "$DEV_CLUSTER_KUBECONF" > .kube/config
 
     - name: Set Kubernetes Context
-        uses: azure/k8s-set-context@v1
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      uses: azure/k8s-set-context@v1
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
     # - name: envsub kube.conf
     #   run: |
