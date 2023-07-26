@@ -24,7 +24,7 @@ jobs:
     
     - uses: actions-hub/kubectl@master
       env:
-        KUBE_CONFIG: ${{ secrets.DEV_CLUSTER_KUBECONF }}
+        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
         args: get ns
     
