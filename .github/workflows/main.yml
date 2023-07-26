@@ -12,11 +12,18 @@ jobs:
       pull-requests: write
       
     steps:
-    - name: pull kubeconfig
-      run: |
-        cd /home/runner
-        mkdir .kube
-        echo "$DEV_CLUSTER_KUBECONF" > .kube/config
+    # working
+    # - name: pull kubeconfig
+    #   run: |
+    #     cd /home/runner
+    #     mkdir .kube
+    #     echo "$DEV_CLUSTER_KUBECONF" > .kube/config
+
+    - name: Set Kubernetes Context
+        uses: azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
     # - name: envsub kube.conf
     #   run: |
