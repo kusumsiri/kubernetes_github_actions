@@ -4,6 +4,11 @@ terraform {
       source = "hashicorp/kubernetes"
       version = "2.11.0"
     }
+
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
   }
 
   backend "s3" {
@@ -25,4 +30,8 @@ provider "helm" {
   kubernetes {
     config_path = "~/.kube/config"
   }
+}
+
+provider "aws" {
+  region = "us-east-1"
 }
