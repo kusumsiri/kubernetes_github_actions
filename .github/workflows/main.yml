@@ -1,7 +1,6 @@
 on: push
-name: deploy
-# env:
-#   DEV_CLUSTER_KUBECONF: ${{ secrets.DEV_CLUSTER_KUBECONF }}
+name: deploy to cluster
+
 
 jobs:
   deploy:
@@ -18,28 +17,13 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1 
-    # working
-    # - name: pull kubeconfig
-    #   run: |
-    #     cd /home/runner
-    #     mkdir .kube
-    #     echo "$DEV_CLUSTER_KUBECONF" > .kube/config
 
     - uses: tale/kubectl-action@v1
       with:
         base64-kube-config: ${{ secrets.KUBE_CONFIG_DATA }}
-    - run: kubectl get ns
-    # - name: envsub kube.conf
-    #   run: |
-    #     cat /home/runner/.kube/config
-    
-    # - uses: actions-hub/kubectl@master
-    #   env:
-    #     KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
-    #   with:
-    #     args: get ns
-    
-    - name: Checkout
+    # - run: kubectl get ns
+       
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - uses: hashicorp/setup-terraform@v2
