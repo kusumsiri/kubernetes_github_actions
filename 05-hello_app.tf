@@ -59,6 +59,7 @@ resource "kubernetes_service" "http-svc" {
       target_port = 8080
     }
 
-    type = "ClusterIP"
+    type = "LoadBalancer"
+    external_ips = ["195.201.150.42"]
   }
 }
