@@ -55,7 +55,7 @@ resource "kubernetes_service" "http-svc" {
       App = var.hello_app_name
     }
     port {
-      port        = 80
+      port        = 8080
       target_port = 8080
     }
 
