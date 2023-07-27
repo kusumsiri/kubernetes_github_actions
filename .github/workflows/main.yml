@@ -18,14 +18,15 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1 
 
-    # - uses: tale/kubectl-action@v1
-    #   with:
-    #     base64-kube-config: ${{ secrets.KUBE_CONFIG_DATA }}
-    # - run: kubectl get ns
+    - name: Setup kubectl command
+      uses: tale/kubectl-action@v1
+      with:
+        base64-kube-config: ${{ secrets.KUBE_CONFIG_DATA }}
        
-    - name: Checkout code
+    - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name Setup Terraform Command
     - uses: hashicorp/setup-terraform@v2
 
     - name: Terraform Init
