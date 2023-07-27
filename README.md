@@ -1,7 +1,7 @@
 # Continuous Deployment to Kubernetes with GitHub Actions
 ## Introduction
 
-This repository uses the GitHub CI/CD pipeline to deploy applications on a Kubernetes cluster. 
+This repository uses the GitHub [CI/CD pipeline](https://resources.github.com/ci-cd/) to deploy applications on a Kubernetes cluster. 
 
 Instead of manually deploying the application via `kubectl` commands or `terraform` commands, the process can be automated with a CI/CD pipeline.
 The Terraform backend uses S3 and DynamoDB with state locking.
@@ -18,3 +18,6 @@ The [main.yml](.github/workflows/main.yml) file handles the CD process. Its 'dep
 6. `Terraform Validate` validate the configuration internally
 7. `Terraform Plan` creates the execution plan
 8. `Terraform Apply` executes the actions
+
+## Lock the Terraform state file
+By default, Terraform stores state locally in `terraform.tfstate` file. When working with Terraform in a team, use of a local file makes Terraform usage complicated because each user must make sure they always have the latest state data before running Terraform and make sure that nobody else runs Terraform at the same time.
