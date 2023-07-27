@@ -60,6 +60,6 @@ resource "kubernetes_service" "http-svc" {
     }
 
     type = "LoadBalancer"
-    external_ips = ["195.201.150.42"]
+    external_ips = var.external_ips
   }
 }
