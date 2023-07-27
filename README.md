@@ -9,3 +9,6 @@ The Terraform backend uses S3 and DynamoDB with state locking.
 ## Workflow
 The [main.yml](.github/workflows/main.yml) file handles the CD process. Its 'deploy' task contains several steps as follows.
 
+`aws-actions/configure-aws-credentials@v1`
+
+This provides AWS credentials for virtual environments hosted on GitHub (Runners).
