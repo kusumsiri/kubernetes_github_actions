@@ -19,7 +19,7 @@ The [main.yml](.github/workflows/main.yml) file handles the CD process. Its 'dep
 7. `Terraform Plan` creates the execution plan
 8. `Terraform Apply` executes the actions
 
-## Lock the Terraform state file
+## Locking the Terraform state file
 By default, Terraform stores state locally in `terraform.tfstate` file. When working with Terraform in a team, use of a local file makes Terraform usage complicated because each user must make sure they always have the latest state data before running Terraform and make sure that nobody else runs Terraform at the same time.
 
 With remote state, Terraform writes the state data to a remote data store (In this case S3), which can then be shared between all members of a team.
