@@ -27,3 +27,4 @@ With support of DynamoDB, Terraform will lock state for all operations. This pre
 
 ![Lock the Terraform state file](https://miro.medium.com/v2/resize:fit:720/format:webp/1*fTy-c4tMqwtsMfZsX0ePLw.png)
 ![Screenshot.png](Screenshot.png)
+
