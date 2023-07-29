@@ -45,21 +45,21 @@ resource "kubernetes_deployment" "hello-app" {
   }
 }
 
-resource "kubernetes_service" "http-svc" {
-  metadata {
-    name = var.hello_app_name
-    namespace  = var.k8_namespace
-  }
-  spec {
-    selector = {
-      App = var.hello_app_name
-    }
-    port {
-      port        = 80
-      target_port = 8080
-    }
+# resource "kubernetes_service" "http-svc" {
+#   metadata {
+#     name = var.hello_app_name
+#     namespace  = var.k8_namespace
+#   }
+#   spec {
+#     selector = {
+#       App = var.hello_app_name
+#     }
+#     port {
+#       port        = 80
+#       target_port = 8080
+#     }
 
-    type = "LoadBalancer"
-    external_ips = var.external_ips
-  }
-}
+#     type = "LoadBalancer"
+#     external_ips = var.external_ips
+#   }
+# }
