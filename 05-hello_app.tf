@@ -8,7 +8,7 @@ resource "kubernetes_deployment" "hello-app" {
   }
 
   spec {
-    replicas = 2
+    replicas = 1
     selector {
       match_labels = {
         App = var.hello_app_name
